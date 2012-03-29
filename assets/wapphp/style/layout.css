@@ -1,0 +1,66 @@
+@charset "utf-8";
+/* CSS Document */
+body,input{ margin:0; padding:0; font-size:12px; font-family:"微软雅黑";}
+h1,h2,dl,dt,dd,ul,li,dl,dt,dd,p{ padding:0; margin:0;}
+ul{ list-style:none;}
+a{ text-decoration:none;}
+a:focus {outline: none;} 
+a img{ border:0;}
+#header,#container{ width:100%; margin:0 auto; }
+#header h1{ background:url(../images/logo.png) #f08200 left center no-repeat; color:#fff; height:47px; line-height:47px; font-size:16px; padding-left:38px;}
+#header h1 span{ background:url(../images/btn_back.png) no-repeat; color:#fff; float:right; margin:9px 5px 0 0; width:53px; height:30px; line-height:30px; text-align:center; font-size:15px; background-size:53px 30px;-webkit-background-size:53px 30px}
+#mainnav{ background:#d7d7d7; height:48px; width:100%; /*background-size:auto 51px;-webkit-background-size:auto 51px*/}
+#mainnav ul{ float:left; background:#eee; width:80%; border:1px #c1c1c1 solid; height:30px; margin:8px;-moz-border-radius:5px;border-radius:5px; }
+#mainnav li{ float:left; width:25%; text-align:center; line-height:30px; height:30px; font-size:14px;}
+#mainnav li a{ float:left; display:block;width:100%; text-align:center; line-height:30px; height:30px; color:#686868;}
+#mainnav li.new,#mainnav li.hot,#mainnav li.list{ border-right:1px #bcbcbc solid;}
+#mainnav li.current{background:#f08200; border:1px #c36a00 solid; color:#fff; margin:-1px;}
+#mainnav li.current a{color:#fff;}
+#mainnav li.new{-moz-border-radius:5px 0 0 5px;border-radius:5px 0 0 5px;}
+#mainnav li.the9{-moz-border-radius:0 5px 5px 0;border-radius:0 5px 5px 0; float:right; width: 24%}
+#mainnav .search{ float:right; width:37px; height:41px; margin:5px 4px 0 0; background: url(../images/btn_search.jpg) no-repeat; background-size:37px 41px;-webkit-background-size:37px 41px;}
+#mainnav .search a{ float:left; width:37px;height:41px;}
+#recommend_game{width:100%; margin:0 auto;background: -moz-linear-gradient(center top , #fff, #dedede); height:100px;}
+#recommend_game ul{ width:100%;margin:0 auto;}
+#recommend_game ul li{ float:left; padding:8px 0px; position:relative;}
+#recommend_game ul li span{ position:absolute; top:8px; left:5px; background:url(../images/tj_front.png) no-repeat; width:150px; height:71px;}
+#recommend_game ul li img{ width:147px; height:68px;}
+#recommend_game .scrollloght{ width:55px; margin:0 auto; padding:10px 0 0 0;}
+#recommend_game .scrollloght li{ width:12px; float:left; margin:0 3px 0 0; background:#cecece; border:1px #c6c6c6 solid; height:2px; padding:0}
+#recommend_game .scrollloght li.current{background:#f90; border:1px #fa883d solid;-moz-box-shadow:0px 0px 3px #f90;-webkit-box-shadow:0px 0px 3px #f90;
+box-shadow:0px 0px 3px #f90;}
+#container .gamelist{width:100%;float:left;}
+#container .classification{width:100%;float:left;}
+#container .classification ul{ float:left; width:100%;}
+#container .classification ul li{ float:left;background:url(../images/arrow.png) 98% center no-repeat, -moz-linear-gradient(center top , #fff, #dedede); height:49px; width:100%;
+background: url(../images/arrow.png) 98% center  no-repeat,-webkit-gradient(linear, left top, left bottom , from(#fff), to(#dedede));border-bottom:1px #d1d1d1 solid; font-size:16px; line-height:49px;}
+#container .classification ul li span{ float:left; width:36px; height:36px; margin:8px 10px 0 15px; }
+#container .classification ul li span.RPGgame{ background:url(../images/icon_RPG.jpg) no-repeat;background-size:36px 36px;-webkit-background-size:36px 36px}
+#container .classification ul li span.PUZgame{ background:url(../images/icon_PUZ.jpg) no-repeat;background-size:36px 36px;-webkit-background-size:36px 36px}
+#container .classification ul li span.STGgame{ background:url(../images/icon_STG.jpg) no-repeat;background-size:36px 36px;-webkit-background-size:36px 36px}
+#container .classification ul li span.Sportgame{ background:url(../images/icon_sport.jpg) no-repeat;background-size:36px 36px;-webkit-background-size:36px 36px}
+#container .classification ul li span.Ejaculationgame{ background:url(../images/icon_Ejaculation.jpg) no-repeat;background-size:36px 36px;-webkit-background-size:36px 36px}
+#container .classification ul li span.BSgame{ background:url(../images/icon_BS.jpg) no-repeat;background-size:36px 36px;-webkit-background-size:36px 36px}
+#container .classification ul li span.ACTgame{ background:url(../images/icon_act.jpg) no-repeat;background-size:36px 36px;-webkit-background-size:36px 36px}
+#container .classification ul li span.OLgame{ background:url(../images/icon_ol.jpg) no-repeat;background-size:36px 36px;-webkit-background-size:36px 36px}
+#container .readmore{background: -webkit-gradient(linear, left top, left bottom , from(#fefefe), to(#dedede));
+background: -moz-linear-gradient(top, #fefefe, #dedede); width:100%;float:left; height:50px;border-bottom:1px #ccc solid; float:left;}
+#container .readmore span{ width:150px; height:30px; margin-top:15px; margin:15px auto 0 auto; display:block;}
+#container .gamelist dl{height:55px; width:100%;float:left; border-bottom:1px #ccc solid; padding:8px 0 0 0; background:#f3f3f3;
+/*background: -webkit-gradient(linear, left top, left bottom , from(#fefefe), to(#f3f3f3));
+background: -moz-linear-gradient(top, #fefefe, #f3f3f3);*/}
+#container .gamelist dl.touched{background: -webkit-gradient(linear, left top, left bottom , from(#fefefe), to(#dedede));
+background: -moz-linear-gradient(top, #fefefe, #dedede);}
+#container .gamelist dl dt{ width:48px; height:48px; float:left; position:relative; margin:2px 0 0 8px;}
+#container .gamelist dl dt img{ width:48px; height:48px;}
+#container .gamelist dl dt span{ position:absolute; width:63px; height:63px; top:-1px; left:-1px; background:url(../images/gameicon_front.png) no-repeat;}
+#container .gamelist dl dd{ float:left; width:78%; margin:2px 0 0 10px;}
+#container .gamelist dl dd h1{ float:left; width:78%; font-size:15px; color:#333; overflow:hidden; height:30px; line-height:30px;}
+#container .gamelist dl dd .develop{ float:left; width:75%; font-size:12px; color:#696868;overflow:hidden;}
+#container .gamelist dl dd .develop span{ padding-left:8px}
+#container .gamelist dl dd .hot{ float:right; font-size:12px; color:#eb9116; margin-right:3px;}
+#container .gamelist dl dd .price{ float:right; font-size:16px; color:#75808c; margin-right:3px; height:30px; line-height:30px;}
+.wrap{width:315px;height:82px;margin:0 auto;overflow:hidden;position:relative;}
+.wrap ul{position:absolute;overflow:hidden;z-index:100;}
+.wrap ul li{float:left;margin:0 4px;}
+.wrap ul li img{width:120px;height:120px;border:1px #ccc solid;vertical-align:middle;}

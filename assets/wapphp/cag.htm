@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>九城游戏中心</title>
+<meta name=viewport content="width=320; initial-scale=1.0;  minimum-scale=1.0; maximum-scale=3.0">
+<link href="style/layout.css" rel="stylesheet" type="text/css" />
+<script language="javascript" type="text/javascript" src="jq.js"></script>
+<script language="javascript" type="text/javascript">
+function show(id){window.gameshow.loadgame(id);}
+function strshort(str){
+if(str=="免费下载"){
+	return str.substring(0,2);
+}else{return str}}
+function GetRankStar(rank){nstar = "";for(i=1;i<=rank;i++){nstar += "★";}for(i;i<=5;i++){nstar += "☆";}return nstar;}
+function jback(){javascript:history.go(-1);}
+var cagname ={"27":"OLgame","26":"ACTgame","25":"BSgame","24":"RPGgame","23":"Ejaculationgame","22":"Sportgame","21":"PUZgame","20":"STGgame"};
+function gamelist(id){filename = "json/"+cagname[id]+".json";$("#container").html("");$("#container").append("<div class='gamelist'></div>");
+$.getJSON(filename,function(data){
+if(data.length!=0){
+for(var i=0;i<data.length;i++){
+$(".gamelist").append("<dl onclick='show("+data[i]['Addonsoft']['aid']+")'><dt><span></span><img src='http://wap.m.the9.com"+data[i]['Wapgame']['glogo']+"'></dt><dd><h1>"+data[i]['archive']['title']+"</h1><p class='price'>￥ "+strshort(data[i]['Addonsoft']['gameprice'])+"</p><p class='develop'>"+data[i]['archive']['writer']+"<span>"+data[i]['Addonsoft']['softsize']+"</span></p><p class='hot'>"+GetRankStar(data[i]['Addonsoft']['softrank'])+"</p></dd></dl>");
+}
+}else{
+$(".gamelist").append("<dl>对不起，没有您想查看的游戏!</dl>");
+}
+});}$(function(){
+var cagfile ='json/Categorygame.json';
+$.getJSON(cagfile, function(data) {
+for(var i=0;i<data.length;i++){
+$(".classification ul").append("<li onclick='gamelist("+data[i]['arctype']['id']+");'><span class='"+cagname[data[i]['arctype']['id']]+"'></span>"+data[i]['arctype']['typename']+"</li>");
+}
+});
+
+});
+</script>
+</head>
+<body>
+<div id="header">
+	<h1>游戏速递</h1>
+</div>
+<div id="container">
+  <div class="classification">
+        <ul>
+        </ul>
+	</span></div>
+</div>
+</body>
+</html>

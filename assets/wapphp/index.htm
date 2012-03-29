@@ -1,0 +1,94 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>九城游戏中心</title>
+<meta name=viewport content="width=320; initial-scale=1.0;  minimum-scale=1.0; maximum-scale=3.0">
+<link href="style/layout.css" rel="stylesheet" type="text/css" />
+<script language="javascript" type="text/javascript" src="jq.js"></script>
+<script language="javascript" type="text/javascript" src="scrolllayer.js"></script>
+</head><script language="javascript" type="text/javascript">
+function show(id){window.gameshow.loadgame(id);}
+function strshort(str){
+if(str=="免费下载"){
+	return str.substring(0,2);
+}else{return str}}
+function GetRankStar(rank){nstar = "";for(i=1;i<=rank;i++){nstar += "★";}for(i;i<=5;i++){nstar += "☆";}return nstar;}
+function indexgame(file){$.getJSON(file, function(data) {
+for(var i=0;i<data.length;i++){
+$(".gamelist").append("<dl onclick='show("+data[i]['Addonsoft']['aid']+")'><dt><span></span><img src='http://wap.m.the9.com"+data[i]['Wapgame']['glogo']+"'></dt><dd><h1>"+data[i]['archive']['title']+"</h1><p class='price'>￥ "+strshort(data[i]['Addonsoft']['gameprice'])+"</p><p class='develop'>"+data[i]['archive']['writer']+"<span>"+data[i]['Addonsoft']['softsize']+"</span></p><p class='hot'>"+GetRankStar(data[i]['Addonsoft']['softrank'])+"</p></dd></dl>");
+}});}
+function loadpic(file){$.getJSON(file, function(data) {
+for(var i=1;i<data.length;i++){
+$(".holder").append("<li><a href='#' title='' onclick='show("+data[i]['Addonsoft']['aid']+")'><img src='http://wap.m.the9.com/"+pic+i+"' /></a></li>");
+}});}
+$(function() {
+var newfile ='json/Newgame.json';
+var hotfile ='json/Hotgame.json';
+var category ='json/Categorygame.json';
+indexgame(newfile);
+$(".the9").click(function(){
+window.the9city.the9start();
+});
+
+$("#mainnav li").click(function(){
+	$(this).siblings().removeClass("current");
+	if($(this).hasClass("hot")){
+		$(this).addClass("current");
+		num = $(".gamelist").children("dl").length;
+		if(num > 0){
+			$(".gamelist").html("");
+			indexgame(hotfile);
+		}
+	}
+	if($(this).hasClass("new")){
+		$(this).addClass("current");
+		num = $(".gamelist").children("dl").length;
+		if(num > 0){
+			$(".gamelist").html("");
+			indexgame(newfile);
+		}
+	}
+
+});
+$('#recommend_game').scrollLayer({direction:'X',wrapEl:'.wrap',touchEl:'.holder',childEl:'li',margin:5,speed:0.9,prevent:true});
+});
+</script>
+<body>
+<div id="header">
+	<h1>游戏速递</h1>
+    <div id="recommend_game">
+	   <div class="wrap">
+        <ul class="holder">
+            <li><a href="" title=""><img src="images/t1.jpg" /></a></li>
+            <li><a href="" title=""><img src="images/t2.jpg" /></a></li>
+			<li><a href="" title=""><img src="images/t1.jpg" /></a></li>
+            <li><a href="" title=""><img src="images/t2.jpg" /></a></li>
+			<li><a href="" title=""><img src="images/t1.jpg" /></a></li>
+            <li><a href="" title=""><img src="images/t2.jpg" /></a></li>
+        </ul>
+		</div>
+		<ul class="scrollloght">
+        	<li class="current"></li>
+        	<li></li>
+        	<li></li>
+        </ul>
+    </div>
+   </div>
+    <div id="mainnav">
+    	<ul>
+            <li class="new current"><a href="#">最新</a></li>
+        	<li class="hot"><a href="#">最热</a></li>
+            <li class="list"><a href="cag.htm">分类</a></li>
+			<li class="the9"><a href="#">九城</a></li>
+        </ul>
+        <div class="search"><a href="#"></a></div>
+	</div>
+<div id="container">
+	<div class="gamelist subtitle">
+		
+    </div>
+</div>
+
+</body>
+</html>
